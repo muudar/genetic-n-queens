@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #chessboard {
+      width: 600px;
+      height: 600px;
+    }
+
+    .chess-square {
+      float: left;
+      border: 1px solid black;
+      background-color: #546c3a;
+    }
+
+    .contains-knight {
+      background-image: url(knight.png);
+      background-size: contain;
+    }
+
+    .contains-queen {
+      background-image: url("../static/queen.png");
+      background-size: contain;
+    }
+
+    .flexbox {
+      height: 95vh;
+      width: 100%;
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .solution{
+        margin-bottom: 25px;
+        font-size: 32px;
+        font-weight: bold;
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        justify-content:center;
+        align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flexbox">
+    <div class="solution">
+        <div>
+            <span id = "nQueens">{{n}}</span> Queens in {{n}}X{{n}} Board
+        </div>
+        <div>
+              {% if solved %}
+        <p> Solution Found in Generation {{gen}}  </p>
+              {% else %}
+        <p>Max Generations Reached! Closest solution is:</p>
+        {% endif %}
+        </div>    
+            <div id = "solutionArray">
+{{solArray}}
+            </div>
+    </div>
+    <div id="chessboard"></div>
+  </div>
+  <script src="../static/script.js"></script>
+</body>
+</html>
